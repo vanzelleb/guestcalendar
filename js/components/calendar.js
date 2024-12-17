@@ -9,7 +9,7 @@ export async function renderCalendar() {
     const bookings = await getBookings();
 
     // Clear calendar
-    calendarDiv.innerHTML = '<h2>Available Dates</h2>';
+    calendarDiv.innerHTML = '<h2>Dates</h2>';
 
     // Create calendar entries
     dates.forEach(date => {
@@ -30,13 +30,19 @@ function createDayElement(date, booking, currentUser, isOwner, isAdmin, dateStr)
         dayDiv.classList.add('weekend');
     }
     
+    // Create wrapper for date and booking info
+    const dayInfo = document.createElement('div');
+    dayInfo.className = 'calendar-day-info';
+    
     const dateSpan = document.createElement('span');
     dateSpan.className = 'date-text';
     dateSpan.textContent = date.toDateString();
-    dayDiv.appendChild(dateSpan);
+    dayInfo.appendChild(dateSpan);
+
+    dayDiv.appendChild(dayInfo);
 
     if (booking) {
-        appendBookingInfo(dayDiv, booking, isOwner, isAdmin, dateStr);
+        appendBookingInfo(dayInfo, booking, isOwner, isAdmin, dateStr, dayDiv);
     } else if (currentUser) {
         appendBookButton(dayDiv, dateStr, currentUser);
     }
@@ -44,12 +50,13 @@ function createDayElement(date, booking, currentUser, isOwner, isAdmin, dateStr)
     return dayDiv;
 }
 
-function appendBookingInfo(dayDiv, booking, isOwner, isAdmin, dateStr) {
+function appendBookingInfo(dayInfo, booking, isOwner, isAdmin, dateStr, dayDiv) {
     const bookedSpan = document.createElement('span');
     bookedSpan.className = 'booked-info';
-    const displayName = isOwner || isAdmin ? extractNameFromEmail(booking.userEmail) : 'someone';
+    const displayName = isOwner || isAdmin ? 
+        (booking.userName || extractNameFromEmail(booking.userEmail)) : 'someone';
     bookedSpan.textContent = `Booked by ${displayName}`;
-    dayDiv.appendChild(bookedSpan);
+    dayInfo.appendChild(bookedSpan);
 
     if (isOwner || isAdmin) {
         const cancelBtn = document.createElement('button');
@@ -63,12 +70,13 @@ function appendBookingInfo(dayDiv, booking, isOwner, isAdmin, dateStr) {
                 alert('Error canceling booking: ' + error.message);
             }
         };
-        dayDiv.appendChild(cancelBtn);
+        dayDiv.appendChild(cancelBtn);  // Add to dayDiv, not dayInfo
     }
 }
 
 function appendBookButton(dayDiv, dateStr, currentUser) {
     const bookBtn = document.createElement('button');
+    bookBtn.className = 'book';
     bookBtn.textContent = 'Book';
     bookBtn.onclick = async () => {
         try {

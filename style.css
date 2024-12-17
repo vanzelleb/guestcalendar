@@ -6,8 +6,8 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: #e6f3ff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2393c5fd' fill-opacity='0.4'/%3E%3C/svg%3E");
+    background-color: #f0f9ff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2393c5fd' fill-opacity='0.2'/%3E%3C/svg%3E");
 }
 
 body {
@@ -15,16 +15,16 @@ body {
     margin: 0;
     padding: 20px;
     min-height: 100vh;
-    color: #1a365d;
+    color: #334155;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
 }
 
 header {
@@ -34,11 +34,11 @@ header {
 
 h1 {
     font-family: 'Pacifico', cursive;
-    color: #2563eb;
+    color: #0ea5e9;
     font-size: 2.5em;
     margin: 0;
     line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(14, 165, 233, 0.2);
 }
 
 .subtitle {
@@ -57,76 +57,126 @@ h1 {
 
 input {
     padding: 12px;
-    border: 2px solid #93c5fd;
-    border-radius: 8px;
+    border: 2px solid #bae6fd;
+    border-radius: 12px;
     font-family: 'Quicksand', sans-serif;
     font-size: 1em;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 input:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #0ea5e9;
+    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
 }
 
+/* Default button styles */
 button {
     padding: 12px 24px;
-    background-color: #2563eb;
+    background-color: #0ea5e9;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
     font-size: 1em;
     transition: all 0.3s ease;
     white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
 }
 
 button:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-1px);
+    background-color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(14, 165, 233, 0.3);
 }
 
 button.cancel {
-    background-color: #ef4444;
+    background-color: #f87171;
 }
 
 button.cancel:hover {
-    background-color: #dc2626;
+    background-color: #ef4444;
+}
+
+/* Auth buttons - with higher specificity */
+.container .auth-form button,
+.container button.auth-form-button {
+    background-color: #94a3b8 !important;
+    box-shadow: 0 2px 4px rgba(148, 163, 184, 0.2) !important;
+}
+
+.container .auth-form button:hover,
+.container button.auth-form-button:hover {
+    background-color: #64748b !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 6px rgba(148, 163, 184, 0.3) !important;
 }
 
 .calendar-day {
+    position: relative;
     display: flex;
     align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid #e5e7eb;
-    gap: 16px;
-    flex-wrap: wrap;
-    transition: background-color 0.3s ease;
+    justify-content: space-between;
+    padding: 12px 16px;
+    gap: 12px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .calendar-day:hover {
-    background-color: rgba(147, 197, 253, 0.1);
+    background-color: rgba(14, 165, 233, 0.05);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.1);
 }
 
 .calendar-day.weekend {
-    background-color: #dbeafe;
+    background-color: #f0f9ff;
 }
 
 .calendar-day.weekend:hover {
-    background-color: #bfdbfe;
+    background-color: #e0f2fe;
+}
+
+.calendar-day-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .date-text {
-    min-width: 150px;
+    flex: 0 0 auto;
     font-weight: 600;
+    font-size: 0.9em;
+    margin-right: 12px;
 }
 
 .booked-info {
     color: #4b5563;
-    flex: 1;
     font-style: italic;
+    font-size: 0.9em;
+    min-width: 0;
+    flex: 1;
+}
+
+.calendar-day button.book,
+.calendar-day button.cancel {
+    padding: 8px 16px;
+    font-size: 0.9em;
+    min-width: 80px;
+    margin-left: auto;
+}
+
+.calendar-day button.book:hover,
+.calendar-day button.cancel:hover {
+    opacity: 0.8;
 }
 
 /* Responsive Design */
@@ -144,24 +194,34 @@ button.cancel:hover {
     }
 
     .calendar-day {
-        padding: 12px;
+        flex-wrap: nowrap;
+        padding: 8px 12px;
     }
 
     .date-text {
-        width: 100%;
-        min-width: unset;
+        min-width: auto;
+        flex: 0 0 auto;
     }
 
-    .booked-info {
-        width: 100%;
-        margin: 8px 0;
-    }
-
-    button {
-        width: 100%;
+    .calendar-day button.book,
+    .calendar-day button.cancel {
+        position: static;
+        transform: none;
+        margin: 0;
+        padding: 6px 12px;
     }
 
     .auth-form {
         max-width: 100%;
+    }
+
+    button {
+        width: auto;
+    }
+
+    .booked-info {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }

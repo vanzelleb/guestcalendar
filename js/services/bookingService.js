@@ -14,9 +14,15 @@ export async function bookDate(dateStr, user) {
         throw new Error('Please sign in to book dates');
     }
 
+    // Get user profile from Firestore
+    const userDoc = await db.collection('users').doc(user.uid).get();
+    const userData = userDoc.data();
+    const userName = userData?.name;
+
     return db.collection('bookings').doc(dateStr).set({
         userId: user.uid,
         userEmail: user.email,
+        userName: userName,
         date: dateStr
     });
 }
