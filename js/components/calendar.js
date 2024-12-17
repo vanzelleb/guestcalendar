@@ -55,7 +55,7 @@ function appendBookingInfo(dayInfo, booking, isOwner, isAdmin, dateStr, dayDiv) 
     bookedSpan.className = 'booked-info';
     const displayName = isOwner || isAdmin ? 
         (booking.userName || extractNameFromEmail(booking.userEmail)) : 'someone';
-    bookedSpan.textContent = `Booked by ${displayName}`;
+    bookedSpan.textContent = `Reserved by ${displayName}`;
     dayInfo.appendChild(bookedSpan);
 
     if (isOwner || isAdmin) {
@@ -77,7 +77,7 @@ function appendBookingInfo(dayInfo, booking, isOwner, isAdmin, dateStr, dayDiv) 
 function appendBookButton(dayDiv, dateStr, currentUser) {
     const bookBtn = document.createElement('button');
     bookBtn.className = 'book';
-    bookBtn.textContent = 'Book';
+    bookBtn.textContent = "I'm coming";
     bookBtn.onclick = async () => {
         try {
             await bookDate(dateStr, currentUser);
