@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despi's & Henning's Alicante Beach P(a)lace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="beach-bg"></div>
+    <div class="container">
+        <header>
+            <h1>Despi's & Henning's<br>Guest Calendar </h1>
+            <p class="subtitle">🌊 Let us know when you want to come visit us in Alicante! 🏖️</p>
+        </header>
+
+        <div id="authSection">
+            <div id="loginForm" class="auth-form">
+                <input type="email" id="email" placeholder="Email">
+                <input type="text" id="name" placeholder="Name">
+                <button onclick="handleAuth()">Sign In / Sign Up</button>
+            </div>
+            <div id="userInfo" style="display: none;">
+                <p>Logged in as: <span id="userEmail"></span></p>
+                <button onclick="handleSignOut()">Sign Out</button>
+            </div>
+        </div>
+        
+        <div id="calendar"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>
