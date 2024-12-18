@@ -1,4 +1,8 @@
 /* Beach-themed SVG background */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Unkempt:wght@400;700&display=swap');
+
 .beach-bg {
     position: fixed;
     top: 0;
@@ -6,12 +10,45 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: #f0f9ff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2393c5fd' fill-opacity='0.2'/%3E%3C/svg%3E");
+    background: radial-gradient(1.5em 6.28571em at 1.95em,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.25) 55%,
+            rgba(255, 255, 255, 0) 55%) 0 0,
+        radial-gradient(1.5em 6.28571em at -0.45em,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.25) 55%,
+            rgba(255, 255, 255, 0) 55%) 1.5em 5.5em,
+        radial-gradient(2.3em 4.57143em at 2.99em,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.3) 55%,
+            rgba(255, 255, 255, 0) 55%) 0 0,
+        radial-gradient(2.3em 4.57143em at -0.69em,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.3) 55%,
+            rgba(255, 255, 255, 0) 55%) 2.3em 4em,
+        radial-gradient(3.5em 6.28571em at 4.55em,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.25) 55%,
+            rgba(255, 255, 255, 0) 55%) 0 0,
+        radial-gradient(3.5em 6.28571em at -1.05em,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.25) 55%,
+            rgba(255, 255, 255, 0) 55%) 3.5em 5.5em,
+        radial-gradient(#15ffa5, #00ced1);
+    background-color: mediumspringgreen;
+    background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em,
+        3.5em 11em, 3.5em 11em, 100% 100%;
+    background-repeat: repeat;
 }
 
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Rubik', sans-serif;
     margin: 0;
     padding: 20px;
     min-height: 100vh;
@@ -21,10 +58,11 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.92);
     padding: 30px;
     border-radius: 24px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 24px rgba(14, 165, 233, 0.15);
+    border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 header {
@@ -33,44 +71,49 @@ header {
 }
 
 h1 {
-    font-family: 'Pacifico', cursive;
-    color: #0ea5e9;
+    font-family: "Caveat Brush", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ac5c00;
     font-size: 2.5em;
     margin: 0;
     line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(14, 165, 233, 0.2);
+    text-shadow: 2px 2px 0px rgba(8, 145, 178, 0.2);
 }
 
 .subtitle {
-    font-size: 1.2em;
+    font-family: "Caveat Brush", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em;
     color: #4b5563;
-    margin-top: 10px;
+    margin-top: 24px;
 }
 
-/* Auth section styling */
 #authSection {
-    margin: 30px 0;  /* Add vertical spacing around auth section */
+    margin: 30px 0;
 }
 
 .auth-form {
     display: flex;
-    flex-direction: column;  /* Always stack vertically */
-    gap: 16px;  /* Consistent spacing between elements */
+    flex-direction: column;
+    gap: 16px;
     max-width: 300px;
-    margin: 0 auto;  /* Center the form */
-    padding: 20px;   /* Add some padding */
-    background-color: rgba(255, 255, 255, 0.5);  /* Subtle background */
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 .auth-form input {
     width: 100%;
-    box-sizing: border-box;  /* Include padding in width calculation */
+    box-sizing: border-box;
     padding: 12px;
-    border: 2px solid #bae6fd;
+    border: 2px solid #7dd3fc;
     border-radius: 12px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 1em;
     transition: all 0.3s ease;
     background-color: rgba(255, 255, 255, 0.9);
@@ -78,24 +121,24 @@ h1 {
 
 .auth-form input:focus {
     outline: none;
-    border-color: #0ea5e9;
-    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+    border-color: #0891b2;
+    box-shadow: 0 2px 8px rgba(8, 145, 178, 0.2);
 }
 
 .auth-form button {
-    margin-top: 8px;  /* Add extra space before button */
-    width: 100%;      /* Make button full width */
+    margin-top: 8px;
+    width: 100%;
 }
 
-/* User info styling */
 #userInfo {
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
     max-width: 300px;
     margin: 0 auto;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 #userInfo p {
@@ -103,48 +146,46 @@ h1 {
     color: #4b5563;
 }
 
-/* Default button styles */
 button {
     padding: 12px 24px;
-    background-color: #0ea5e9;
+    background-color: #0891b2;
     color: white;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
+    font-family: "Unkempt", serif;
+    font-weight: 700;
+    font-style: normal;
     font-size: 1em;
     transition: all 0.3s ease;
     white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.2);
 }
 
 button:hover {
-    background-color: #0284c7;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(14, 165, 233, 0.3);
+    background-color: #0e7490;
+    box-shadow: 0 6px 16px rgba(8, 145, 178, 0.3);
+    font-size: 1em;
 }
 
 button.cancel {
-    background-color: #f87171;
+    background-color: #f43f5e;
 }
 
 button.cancel:hover {
-    background-color: #ef4444;
+    background-color: #e11d48;
 }
 
-/* Auth buttons - with higher specificity */
 .container .auth-form button,
 .container button.auth-form-button {
-    background-color: #94a3b8 !important;
-    box-shadow: 0 2px 4px rgba(148, 163, 184, 0.2) !important;
+    background-color: #64748b !important;
+    box-shadow: 0 4px 12px rgba(100, 116, 139, 0.2) !important;
 }
 
 .container .auth-form button:hover,
 .container button.auth-form-button:hover {
-    background-color: #64748b !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 6px rgba(148, 163, 184, 0.3) !important;
+    background-color: #475569 !important;
+    box-shadow: 0 6px 16px rgba(100, 116, 139, 0.3) !important;
 }
 
 .calendar-day {
@@ -155,23 +196,22 @@ button.cancel:hover {
     padding: 12px 16px;
     gap: 12px;
     transition: all 0.3s ease;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 4px;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 2px solid #e0f2fe;
 }
 
 .calendar-day:hover {
-    background-color: rgba(14, 165, 233, 0.05);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.1);
+    background-color: rgba(8, 145, 178, 0.05);
+    box-shadow: 0 2px 8px rgba(8, 145, 178, 0.1);
 }
 
 .calendar-day.weekend {
-    background-color: #f0f9ff;
+    border-left: 3px solid #7dd3fc;
 }
 
 .calendar-day.weekend:hover {
-    background-color: #e0f2fe;
+    background-color: rgba(8, 145, 178, 0.05);
 }
 
 .calendar-day-info {
@@ -188,10 +228,11 @@ button.cancel:hover {
     font-weight: 600;
     font-size: 0.9em;
     margin-right: 12px;
+    color: #353535;
 }
 
 .booked-info {
-    color: #4b5563;
+    color: #64748b;
     font-style: italic;
     font-size: 0.9em;
     min-width: 0;
@@ -201,17 +242,16 @@ button.cancel:hover {
 .calendar-day button.book,
 .calendar-day button.cancel {
     padding: 8px 16px;
-    font-size: 0.9em;
+    font-size: 1em;
     min-width: 80px;
     margin-left: auto;
 }
 
 .calendar-day button.book:hover,
 .calendar-day button.cancel:hover {
-    opacity: 0.8;
+    opacity: 1;
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -244,8 +284,8 @@ button.cancel:hover {
     }
 
     .auth-form {
-        margin: 0 auto;  /* Keep centered on mobile */
-        padding: 16px;   /* Slightly less padding on mobile */
+        margin: 0 auto;
+        padding: 16px;
     }
 
     button {

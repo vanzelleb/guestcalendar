@@ -9,7 +9,7 @@ export async function renderCalendar() {
     const bookings = await getBookings();
 
     // Clear calendar
-    calendarDiv.innerHTML = '<h2>Dates</h2>';
+    calendarDiv.innerHTML = '<h2></h2>';
 
     // Create calendar entries
     dates.forEach(date => {
