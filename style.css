@@ -319,6 +319,10 @@ button.cancel:hover {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    #temperatureChart {
+        max-height: 250px;
+    }
 }
 
 .sr-only {
@@ -373,4 +377,10 @@ button.cancel:hover {
 
 .calendar-day:nth-child(n) {
     animation-delay: calc(n * 0.05s);
+}
+
+#temperatureChart {
+    max-height: 300px;
+    width: 100% !important;
+    margin: 20px auto;
 }

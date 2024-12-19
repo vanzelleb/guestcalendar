@@ -22,12 +22,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 2,  // Width:Height ratio of 2:1
     plugins: {
       legend: {
         position: 'top',
       },
       title: {
         display: true,
+        text: 'Temperature in Alicante'
+      },
+    },
+    scales: {
+      y: {
+        min: 10,
+        max: 30,
+        ticks: {
+          stepSize: 5,
+          callback: function(value) {
+            return value + '°C';
+          },
+        },
       },
     },
   };
