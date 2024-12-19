@@ -1,4 +1,4 @@
-import { generateDates, formatDateStr, isWeekend, extractNameFromEmail } from '../utils/dateUtils.js';
+import { generateDates, formatDateStr, isWeekend } from '../utils/dateUtils.js';
 import { getBookings, bookDate, cancelBooking } from '../services/bookingService.js';
 import { getCurrentUser } from '../store/userStore.js';
 
@@ -29,11 +29,11 @@ function createDayElement(date, booking, currentUser, isOwner, isAdmin, dateStr)
     if (isWeekend(date)) {
         dayDiv.classList.add('weekend');
     }
-    
+
     // Create wrapper for date and booking info
     const dayInfo = document.createElement('div');
     dayInfo.className = 'calendar-day-info';
-    
+
     const dateSpan = document.createElement('span');
     dateSpan.className = 'date-text';
     dateSpan.textContent = date.toDateString();
@@ -53,8 +53,8 @@ function createDayElement(date, booking, currentUser, isOwner, isAdmin, dateStr)
 function appendBookingInfo(dayInfo, booking, isOwner, isAdmin, dateStr, dayDiv) {
     const bookedSpan = document.createElement('span');
     bookedSpan.className = 'booked-info';
-    const displayName = isOwner || isAdmin ? 
-        (booking.userName || extractNameFromEmail(booking.userEmail)) : 'someone';
+    const displayName = isOwner || isAdmin ?
+        (booking.userName) : 'someone';
     bookedSpan.textContent = `Reserved by ${displayName}`;
     dayInfo.appendChild(bookedSpan);
 

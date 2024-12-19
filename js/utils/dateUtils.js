@@ -18,7 +18,3 @@ export function isWeekend(date) {
     const day = date.getDay();
     return day === 0 || day === 6;
 }
-
-export function extractNameFromEmail(email) {
-    return email.split('@')[0];
-}

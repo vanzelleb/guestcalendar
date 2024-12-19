@@ -3,19 +3,22 @@ import { initializeAuthUI, handleAuth, handleSignOut } from './components/auth.j
 import { renderCalendar } from './components/calendar.js';
 import { setCurrentUser } from './store/userStore.js';
 
-const authUI = initializeAuthUI();
-
-// Make auth handlers available globally
+// Make auth functions globally available
 window.handleAuth = handleAuth;
 window.handleSignOut = handleSignOut;
 
-// Auth state observer
-onAuthStateChanged((user) => {
-    setCurrentUser(user);
-    if (user) {
-        authUI.showLoggedIn(user);
-    } else {
-        authUI.showLoggedOut();
-    }
-    renderCalendar();
+// Initialize auth UI when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const authUI = initializeAuthUI();
+
+    // Auth state observer
+    onAuthStateChanged((user) => {
+        setCurrentUser(user);
+        if (user) {
+            authUI.showLoggedIn(user);
+        } else {
+            authUI.showLoggedOut();
+        }
+        renderCalendar();
+    });
 });
