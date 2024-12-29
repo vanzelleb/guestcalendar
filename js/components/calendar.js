@@ -65,12 +65,15 @@ function appendBookingInfo(dayInfo, booking, isOwner, isAdmin, dateStr, dayDiv) 
         cancelBtn.onclick = async () => {
             try {
                 await cancelBooking(dateStr);
-                renderCalendar();
+                // Replace the day element with a new unboooked version
+                const currentUser = getCurrentUser();
+                const newDayDiv = createDayElement(new Date(dateStr), null, currentUser, false, isAdmin, dateStr);
+                dayDiv.parentNode.replaceChild(newDayDiv, dayDiv);
             } catch (error) {
                 alert('Error canceling booking: ' + error.message);
             }
         };
-        dayDiv.appendChild(cancelBtn);  // Add to dayDiv, not dayInfo
+        dayDiv.appendChild(cancelBtn);
     }
 }
 
@@ -80,9 +83,25 @@ function appendBookButton(dayDiv, dateStr, currentUser) {
     bookBtn.textContent = "I'm coming";
     bookBtn.onclick = async () => {
         try {
-            await bookDate(dateStr, currentUser);
-            renderCalendar();
+            // Add loading state
+            bookBtn.classList.add('loading');
+            bookBtn.disabled = true;
+            
+            const bookingData = await bookDate(dateStr, currentUser);
+            const isAdmin = currentUser.email === 'wannikid@gmail.com';
+            const newDayDiv = createDayElement(
+                new Date(dateStr), 
+                bookingData,
+                currentUser, 
+                true,
+                isAdmin, 
+                dateStr
+            );
+            dayDiv.parentNode.replaceChild(newDayDiv, dayDiv);
         } catch (error) {
+            // Remove loading state if there's an error
+            bookBtn.classList.remove('loading');
+            bookBtn.disabled = false;
             alert('Error booking date: ' + error.message);
         }
     };

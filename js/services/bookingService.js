@@ -19,12 +19,15 @@ export async function bookDate(dateStr, user) {
     const userData = userDoc.data();
     const userName = userData?.name;
 
-    return db.collection('bookings').doc(dateStr).set({
+    const bookingData = {
         userId: user.uid,
         userEmail: user.email,
         userName: userName,
         date: dateStr
-    });
+    };
+
+    await db.collection('bookings').doc(dateStr).set(bookingData);
+    return bookingData;  // Return the booking data
 }
 
 export async function cancelBooking(dateStr) {

@@ -208,17 +208,13 @@ button.cancel:hover {
     justify-content: space-between;
     padding: 12px 16px;
     gap: 12px;
-    transition: all 0.3s ease;
     border-radius: 12px;
     margin-bottom: 4px;
     border-bottom: 2px solid #e0f2fe;
     background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.9));
     backdrop-filter: blur(4px);
     border: 1px solid rgba(125, 211, 252, 0.3);
-    transform: translateY(0);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: fadeIn 0.5s ease-out;
-    animation-fill-mode: both;
+    /* Remove animation properties */
 }
 
 .calendar-day:hover {
@@ -370,17 +366,43 @@ button.cancel:hover {
     100% { transform: rotate(360deg); }
 }
 
-@keyframes fadeIn {
+/* Remove or comment out these animations */
+/*@keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .calendar-day:nth-child(n) {
     animation-delay: calc(n * 0.05s);
-}
+}*/
 
 #temperatureChart {
     max-height: 300px;
     width: 100% !important;
     margin: 20px auto;
+}
+
+/* Update loading styles to be more visible */
+.loading {
+    position: relative;
+    cursor: wait !important;
+    pointer-events: none;
+    opacity: 0.6;
+    background: linear-gradient(135deg, #0891b2, #0ea5e9) !important;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.9);
+    animation: loading 1.2s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
