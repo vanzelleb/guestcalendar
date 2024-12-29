@@ -81,12 +81,10 @@ function appendBookButton(dayDiv, dateStr, currentUser) {
     const bookBtn = document.createElement('button');
     bookBtn.className = 'book';
     bookBtn.textContent = "I'm coming";
+    
     bookBtn.onclick = async () => {
         try {
-            // Add loading state
-            bookBtn.classList.add('loading');
             bookBtn.disabled = true;
-            
             const bookingData = await bookDate(dateStr, currentUser);
             const isAdmin = currentUser.email === 'wannikid@gmail.com';
             const newDayDiv = createDayElement(
@@ -99,8 +97,6 @@ function appendBookButton(dayDiv, dateStr, currentUser) {
             );
             dayDiv.parentNode.replaceChild(newDayDiv, dayDiv);
         } catch (error) {
-            // Remove loading state if there's an error
-            bookBtn.classList.remove('loading');
             bookBtn.disabled = false;
             alert('Error booking date: ' + error.message);
         }
