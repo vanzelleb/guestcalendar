@@ -9,7 +9,7 @@ export async function renderCalendar() {
     const bookings = await getBookings();
 
     // Clear calendar
-    calendarDiv.innerHTML = '<h2></h2>';
+    calendarDiv.innerHTML = '';
 
     // Create calendar entries
     dates.forEach(date => {
@@ -25,81 +25,42 @@ export async function renderCalendar() {
 
 function createDayElement(date, booking, currentUser, isOwner, isAdmin, dateStr) {
     const dayDiv = document.createElement('div');
-    dayDiv.className = 'calendar-day';
-    if (isWeekend(date)) {
-        dayDiv.classList.add('weekend');
-    }
+    dayDiv.className = 'calendar-day' + (isWeekend(date) ? ' weekend' : '');
+    dayDiv.innerHTML = `
+        <div class="calendar-day-info">
+            <span class="date-text">${date.toDateString()}</span>
+            ${booking ? `<span class="booked-info">Reserved by ${(isOwner || isAdmin) ? booking.userName : 'someone'}</span>` : ''}
+        </div>
+    `;
 
-    // Create wrapper for date and booking info
-    const dayInfo = document.createElement('div');
-    dayInfo.className = 'calendar-day-info';
-
-    const dateSpan = document.createElement('span');
-    dateSpan.className = 'date-text';
-    dateSpan.textContent = date.toDateString();
-    dayInfo.appendChild(dateSpan);
-
-    dayDiv.appendChild(dayInfo);
-
-    if (booking) {
-        appendBookingInfo(dayInfo, booking, isOwner, isAdmin, dateStr, dayDiv);
-    } else if (currentUser) {
-        appendBookButton(dayDiv, dateStr, currentUser);
-    }
-
-    return dayDiv;
-}
-
-function appendBookingInfo(dayInfo, booking, isOwner, isAdmin, dateStr, dayDiv) {
-    const bookedSpan = document.createElement('span');
-    bookedSpan.className = 'booked-info';
-    const displayName = isOwner || isAdmin ?
-        (booking.userName) : 'someone';
-    bookedSpan.textContent = `Reserved by ${displayName}`;
-    dayInfo.appendChild(bookedSpan);
-
-    if (isOwner || isAdmin) {
+    if (booking && (isOwner || isAdmin)) {
         const cancelBtn = document.createElement('button');
         cancelBtn.className = 'cancel';
         cancelBtn.textContent = 'Cancel';
         cancelBtn.onclick = async () => {
             try {
                 await cancelBooking(dateStr);
-                // Replace the day element with a new unboooked version
-                const currentUser = getCurrentUser();
-                const newDayDiv = createDayElement(new Date(dateStr), null, currentUser, false, isAdmin, dateStr);
-                dayDiv.parentNode.replaceChild(newDayDiv, dayDiv);
+                renderCalendar();
             } catch (error) {
                 alert('Error canceling booking: ' + error.message);
             }
         };
         dayDiv.appendChild(cancelBtn);
+    } else if (!booking && currentUser) {
+        const bookBtn = document.createElement('button');
+        bookBtn.className = 'book';
+        bookBtn.textContent = "I'm coming";
+        bookBtn.onclick = async () => {
+            try {
+                bookBtn.disabled = true;
+                await bookDate(dateStr, currentUser);
+                renderCalendar();
+            } catch (error) {
+                bookBtn.disabled = false;
+                alert('Error booking date: ' + error.message);
+            }
+        };
+        dayDiv.appendChild(bookBtn);
     }
-}
-
-function appendBookButton(dayDiv, dateStr, currentUser) {
-    const bookBtn = document.createElement('button');
-    bookBtn.className = 'book';
-    bookBtn.textContent = "I'm coming";
-    
-    bookBtn.onclick = async () => {
-        try {
-            bookBtn.disabled = true;
-            const bookingData = await bookDate(dateStr, currentUser);
-            const isAdmin = currentUser.email === 'wannikid@gmail.com';
-            const newDayDiv = createDayElement(
-                new Date(dateStr), 
-                bookingData,
-                currentUser, 
-                true,
-                isAdmin, 
-                dateStr
-            );
-            dayDiv.parentNode.replaceChild(newDayDiv, dayDiv);
-        } catch (error) {
-            bookBtn.disabled = false;
-            alert('Error booking date: ' + error.message);
-        }
-    };
-    dayDiv.appendChild(bookBtn);
+    return dayDiv;
 }

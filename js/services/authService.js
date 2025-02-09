@@ -2,28 +2,16 @@ import { auth, db } from '../config/firebase.js';
 
 export async function signInOrSignUp(email, name) {
     const paddedName = name + '123!@#FirebaseMin';
-    
+    let userCredential;
     try {
-        // Try to sign in first
-        const userCredential = await auth.signInWithEmailAndPassword(email, paddedName);
-        // Update user profile in Firestore
-        await db.collection('users').doc(userCredential.user.uid).set({
-            email: email,
-            name: name
-        }, { merge: true });
+        userCredential = await auth.signInWithEmailAndPassword(email, paddedName);
     } catch (error) {
-        // If sign in fails, create new account
-        try {
-            const userCredential = await auth.createUserWithEmailAndPassword(email, paddedName);
-            // Create user profile in Firestore
-            await db.collection('users').doc(userCredential.user.uid).set({
-                email: email,
-                name: name
-            });
-        } catch (error) {
-            throw new Error('Authentication error: ' + error.message);
-        }
+        userCredential = await auth.createUserWithEmailAndPassword(email, paddedName);
     }
+    await db.collection('users').doc(userCredential.user.uid).set({
+        email,
+        name
+    }, { merge: true });
 }
 
 export function signOut() {
