@@ -29,13 +29,11 @@
             <h1>Despi's & Henning's<br>Guest Room Calendar </h1>
             <p class="subtitle">🌊 Login with your email and let us know when you want to come visit us in Alicante! <a
                     href="https://maps.app.goo.gl/67YUCix37Qft3bjv9" target="blank">Here's a map.</a> 🏖️</p>
-            <img src="https://www.masmar.net/var/masmar/storage/images/galerias/nuestras-costas/costas-de-alicante.-desde-cabo-roig-a-cabo-de-la-nao/cabo-huertas-desde-el-e/191093-1-esl-ES/Cabo-Huertas-desde-el-E.jpg"
-                alt="Beaches in Cabo de Huertas, Alicante" style="width: 100%; height: auto;">
             <canvas id="temperatureChart" width="400" height="200"></canvas>
         </header>
 
         <div id="authSection">
-            <form id="loginForm" class="auth-form" onsubmit="handleAuth(); return false;">
+            <form id="loginForm" class="auth-form">
                 <input type="email" id="email" placeholder="Email">
                 <input type="text" id="name" placeholder="Name">
 
@@ -43,7 +41,7 @@
             </form>
             <div id="userInfo" style="display: none;">
                 <p>Logged in as: <span id="userEmail"></span></p>
-                <button class="auth-form-button" onclick="handleSignOut()">Sign Out</button>
+                <button class="auth-form-button">Sign Out</button>
             </div>
         </div>
 

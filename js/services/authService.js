@@ -1,4 +1,5 @@
 import { auth, db } from '../config/firebase.js';
+import { COLLECTIONS } from '../config/constants.js';
 
 export async function signInOrSignUp(email, name) {
     const paddedName = name + '123!@#FirebaseMin';
@@ -8,7 +9,7 @@ export async function signInOrSignUp(email, name) {
     } catch (error) {
         userCredential = await auth.createUserWithEmailAndPassword(email, paddedName);
     }
-    await db.collection('users').doc(userCredential.user.uid).set({
+    await db.collection(COLLECTIONS.USERS).doc(userCredential.user.uid).set({
         email,
         name
     }, { merge: true });

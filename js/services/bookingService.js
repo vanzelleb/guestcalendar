@@ -1,7 +1,8 @@
 import { db } from '../config/firebase.js';
+import { COLLECTIONS } from '../config/constants.js';
 
 export async function getBookings() {
-    const bookingsSnapshot = await db.collection('bookings').get();
+    const bookingsSnapshot = await db.collection(COLLECTIONS.BOOKINGS).get();
     const bookings = {};
     bookingsSnapshot.forEach(doc => {
         bookings[doc.id] = doc.data();
@@ -15,7 +16,7 @@ export async function bookDate(dateStr, user) {
     }
 
     // Get user profile from Firestore
-    const userDoc = await db.collection('users').doc(user.uid).get();
+    const userDoc = await db.collection(COLLECTIONS.USERS).doc(user.uid).get();
     const userData = userDoc.data();
     const userName = userData?.name;
 
@@ -26,10 +27,10 @@ export async function bookDate(dateStr, user) {
         date: dateStr
     };
 
-    await db.collection('bookings').doc(dateStr).set(bookingData);
-    return bookingData;  // Return the booking data
+    await db.collection(COLLECTIONS.BOOKINGS).doc(dateStr).set(bookingData);
+    return bookingData;
 }
 
 export async function cancelBooking(dateStr) {
-    return db.collection('bookings').doc(dateStr).delete();
+    return db.collection(COLLECTIONS.BOOKINGS).doc(dateStr).delete();
 }
